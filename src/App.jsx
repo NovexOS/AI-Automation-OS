@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 
 import Dashboard from "./pages/Dashboard";
@@ -11,7 +10,7 @@ import Analytics from "./pages/Analytics";
 
 function App() {
   return (
-    <Router>
+    
       <div className="flex">
         <Sidebar />
 
@@ -26,7 +25,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </Router>
+    
   );
 }
 
