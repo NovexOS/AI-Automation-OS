@@ -11,21 +11,42 @@ import Analytics from "./pages/Analytics";
 function App() {
   return (
     
+     <Routes>
+  <Route path="/home" element={<Home />} />
+  <Route path="/login" element={<Login />} />
+  <Route path="/signup" element={<Signup />} />
+
+  <Route
+    path="/dashboard"
+    element={
       <div className="flex">
         <Sidebar />
-
-        <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/leads" element={<Leads />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/analytics" element={<Analytics />} />
-          </Routes>
-        </div>
+        <Dashboard />
       </div>
-    
+    }
+  />
+
+  <Route
+    path="/leads"
+    element={
+      <div className="flex">
+        <Sidebar />
+        <Leads />
+      </div>
+    }
+  />
+
+  <Route
+    path="/analytics"
+    element={
+      <div className="flex">
+        <Sidebar />
+        <Analytics />
+      </div>
+    }
+  />
+</Routes>
+
   );
 }
 

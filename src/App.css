@@ -42,3 +42,44 @@ transition:0.3s;
 .box:hover{
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
+
+.form-container{
+max-width:500px;
+margin-top:40px;
+}
+
+.form-title{
+font-size:28px;
+font-weight:600;
+margin-bottom:25px;
+}
+
+.form-container input{
+width:100%;
+padding:12px;
+margin-bottom:18px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+.form-container textarea{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+min-height:120px;
+margin-bottom:20px;
+font-size:14px;
+}
+
+.form-container button{
+width:100%;
+padding:12px;
+background:#1da1f2;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}

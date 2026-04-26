@@ -1,59 +1,98 @@
-import { supabase } from "../supabaseClient"
-import { useEffect, useState } from "react"
-export default function Leads(){
+import { useState } from "react";
 
-const [leads,setLeads] = useState([])
+function Leads() {
 
-useEffect(()=>{
- fetchLeads()
-},[])
+const [name,setName] = useState("");
+const [email,setEmail] = useState("");
+const [message,setMessage] = useState("");
+const [leads,setLeads] = useState([]);
 
-async function fetchLeads(){
- const { data, error } = await supabase
-   .from("leads")
-   .select("*")
+const handleSubmit = (e)=>{
+ e.preventDefault();
 
- if(data){
-   setLeads(data)
- }
-}
+ const newLead = {
+  name:name,
+  email:email,
+  message:message
+ };
+
+ setLeads([...leads,newLead]);
+
+ setName("");
+ setEmail("");
+ setMessage("");
+};
 
 return(
 
-<div className="p-6">
+<div style={{padding:"30px",maxWidth:"600px"}}>
 
-<h1 className="text-2xl font-bold mb-6">
-Leads Manager
-</h1>
+<h2>Lead Form</h2>
 
-<table className="w-full bg-white shadow rounded">
+<form
+onSubmit={handleSubmit}
+style={{
+display:"flex",
+flexDirection:"column",
+gap:"15px"
+}}
+>
 
-<thead>
-<tr className="border-b text-left">
-<th className="p-3">Name</th>
-<th className="p-3">Email</th>
-<th className="p-3">Status</th>
-<th className="p-3">Source</th>
-</tr>
-</thead>
+<input
+placeholder="Name"
+value={name}
+onChange={(e)=>setName(e.target.value)}
+style={{padding:"10px"}}
+/>
 
-<tbody>
+<input
+placeholder="Email"
+value={email}
+onChange={(e)=>setEmail(e.target.value)}
+style={{padding:"10px"}}
+/>
+
+<textarea
+placeholder="Message"
+value={message}
+onChange={(e)=>setMessage(e.target.value)}
+style={{padding:"10px"}}
+/>
+
+<button
+type="submit"
+style={{
+background:"#1e90ff",
+color:"white",
+padding:"12px",
+border:"none",
+borderRadius:"5px"
+}}
+>
+Submit
+</button>
+
+</form>
+
+<h3 style={{marginTop:"40px"}}>All Leads</h3>
 
 {leads.map((lead,index)=>(
-<tr key={index} className="border-b">
-<td className="p-3">{lead.name}</td>
-<td className="p-3">{lead.email}</td>
-<td className="p-3">{lead.status}</td>
-<td className="p-3">{lead.source}</td>
-</tr>
+<div key={index} style={{
+border:"1px solid #ddd",
+padding:"10px",
+marginTop:"10px",
+borderRadius:"5px"
+}}>
+<p><b>Name:</b> {lead.name}</p>
+<p><b>Email:</b> {lead.email}</p>
+<p><b>Message:</b> {lead.message}</p>
+</div>
 ))}
-
-</tbody>
-
-</table>
 
 </div>
 
-)
+);
 
 }
+
+export default Leads;
