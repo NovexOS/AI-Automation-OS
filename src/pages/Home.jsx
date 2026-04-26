@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Home() {
   return (
     <div className="p-10">
@@ -10,9 +12,12 @@ export default function Home() {
         Automate your entire business with AI agents.
       </p>
 
+      <Link to="/signup">
       <button className="mt-6 bg-blue-600 text-white px-6 py-2 rounded">
         Get Started
       </button>
+      </Link>
+
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
 

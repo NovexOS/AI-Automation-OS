@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
+import { useNavigate } from "react-router-dom"
 
-const handleSignup = async () => {
+function Signup() {
+  const navigate = useNavigate()
+  
+  const handleSignup = async () => {
 
   const email = document.querySelector('input[type="email"]').value;
   const password = document.querySelector('input[placeholder="Create password"]').value;
@@ -15,11 +19,11 @@ const handleSignup = async () => {
     alert(error.message);
   } else {
     alert("Signup successful");
+    navigate("/login")
   }
 
 };
 
-function Signup() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-blue-500">
       <div className="bg-white p-8 rounded-xl w-96 shadow-lg">

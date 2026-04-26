@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
+import { useNavigate } from "react-router-dom"
 
 function Login() {
+  const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const handleLogin = async () => {
@@ -16,7 +18,7 @@ if(error){
   alert(error.message)
 }else{
   alert("Login successful")
-  window.location.href="/dashboard"
+  navigate("/dashboard")
 }
 
 }
@@ -43,7 +45,7 @@ if(error){
         <button 
         onClick={handleLogin}
         className="w-full bg-blue-600 text-white p-2 rounded mb-4">
-          Login
+          Signup
         </button>
 
         <p className="text-center mb-4">
