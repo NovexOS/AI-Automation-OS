@@ -10,43 +10,44 @@ import Analytics from "./pages/Analytics";
 
 function App() {
   return (
-    
-     <Routes>
-  <Route path="/home" element={<Home />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="/signup" element={<Signup />} />
+    <Routes>
 
-  <Route
-    path="/dashboard"
-    element={
-      <div className="flex">
-        <Sidebar />
-        <Dashboard />
-      </div>
-    }
-  />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
-  <Route
-    path="/leads"
-    element={
-      <div className="flex">
-        <Sidebar />
-        <Leads />
-      </div>
-    }
-  />
+      <Route
+        path="/dashboard"
+        element={
+          <div className="flex">
+            <Sidebar />
+            <Dashboard />
+          </div>
+        }
+      />
 
-  <Route
-    path="/analytics"
-    element={
-      <div className="flex">
-        <Sidebar />
-        <Analytics />
-      </div>
-    }
-  />
-</Routes>
+      <Route
+        path="/leads"
+        element={
+          <div className="flex">
+            <Sidebar />
+            <Leads />
+          </div>
+        }
+      />
 
+      <Route
+        path="/analytics"
+        element={
+          <div className="flex">
+            <Sidebar />
+            <Analytics />
+          </div>
+        }
+      />
+
+    </Routes>
   );
 }
 
