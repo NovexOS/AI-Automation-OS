@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Analytics from "./pages/Analytics";
 
 function App() {
+  console.log("deploy text");
   return (
     <Routes>
 
